@@ -1,0 +1,35 @@
+{% extends 'newsLetterApp/base.html' %}
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+
+{% block content %}
+<!doctype html>
+<html>
+    <head>
+        <title> Email Newsletter </title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-12">
+                <h1>Email Newsletter</h1>
+            </div>
+            <div class="col-12">
+                {% if email %}
+                <p>{{ email }} has been {{ action }}.</p>
+                {% endif %}
+            </div>
+        {% if form %}
+            <div class="col-12 col-md-4">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {{ form }}
+                    <br>
+                    <button type="submit" class="btn btn-success">Subscribe!</button>
+                </form>
+            </div>
+        {% endif %}
+        </div>
+    </body>
+</html>
+{% endblock %}

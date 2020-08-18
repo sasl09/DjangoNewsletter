@@ -1,0 +1,28 @@
+{% extends 'newsLetterApp/base.html' %}
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+
+{% block content %}
+    {% for tag in tags %}
+        <h1>{{ tag }}</h1>
+        <br>
+        <h3>Check out the latest on {{ tag }}...</h3>
+        <br>
+    {% endfor %}
+        {% for sport in sports %}
+            <article class="media content-section">
+              <div class="media-body">
+                <div class="article-metadata">
+                  <a class="mr-2" href="#">{{ sport.title}} </a>
+    <!--              <small class="text-muted">{{ tag.date_added|date:"F d, Y" }}</small>-->
+                </div>
+    <!--            <h2><a class="article-title" href="#">{{ newsletter.title }}</a></h2>-->
+                <p class="article-content">{{ sport.content }}</p>
+              </div>
+            </article>
+        {% endfor %}
+{% endblock %}
+
+
+
