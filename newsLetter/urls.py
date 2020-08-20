@@ -17,11 +17,19 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
+from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token
 from users import views as user_views
 from django.views.generic import TemplateView
 from emailer import views
 from newsLetterApp import views as newsletterapp_views
-from newsLetterApp.views import newsletters_list
+from newsLetterApp.views import NewslettersViewSet, UsersViewSet, TagsViewSet, SubscribersViewSet
+
+router = routers.DefaultRouter()
+router.register(r'newsletters', NewslettersViewSet, "Newsletters")
+router.register(r'tags', TagsViewSet)
+router.register(r'users', UsersViewSet)
+router.register(r'subscribers', SubscribersViewSet)
 
 
 urlpatterns = [
@@ -39,5 +47,6 @@ urlpatterns = [
     path('home/', TemplateView.as_view(template_name="home.html"), name='home'),
     path('send_email/', views.SendFormEmail.as_view(), name='send_email'),
     # API URLS:
-    url(r'^api/v1/', newsletters_list),
+    url(r'^api/v1/', include(router.urls)),
+    url(r'^api-token-auth/', obtain_auth_token),
 ]

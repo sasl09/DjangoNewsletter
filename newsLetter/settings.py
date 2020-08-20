@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     #'newsLetterApp.apps.NewsletterappConfig',
     'newsLetterApp', #You can just add the whole "App folder container" instead of the above line...
     'rest_framework',
+    'rest_framework.authtoken',
     'users.apps.UsersConfig',
     'emailer',
     'crispy_forms',
@@ -142,3 +143,14 @@ EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = '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'
 FROM_EMAIL = 'sasl09@outlook.com'
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
