@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from .models import TagsNewsletter, Tag, Subscriber
+<<<<<<< HEAD
 from users.models import Profile
+=======
+>>>>>>> b45c2250c6ca585848e16ee36ed4d5b47c91bea1
 from django.contrib.auth.models import User
 
 
