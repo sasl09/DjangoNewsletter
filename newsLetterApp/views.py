@@ -1,4 +1,6 @@
-from rest_framework.decorators import api_view
+from django.contrib.auth.models import User
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .models import Tag, TagsNewsletter, Subscriber
 from django.shortcuts import render
@@ -8,7 +10,7 @@ from .forms import SubscriberForm, UnSubscribeForm
 import random
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
-from .serializers import NewsletterSerializer
+from .serializers import NewsletterSerializer, UsersSerializer, TagsSerializer, SubscribersSerializer
 
 
 # Create your views here.
@@ -29,14 +31,14 @@ def newsletter_bulletins(request):
     return render(request, template, context)
 
 
-def newsletter_sports(request):
+def newsletter_categories(request):
     req = str(request)
-    req = req[43:-2].capitalize()
+    req = req[47:-2].capitalize()
     context = {
-        'sports': TagsNewsletter.objects.filter(tags__name=req),
+        'categories': TagsNewsletter.objects.filter(tags__name=req),
         'tags': Tag.objects.filter(name=req)
     }
-    template = 'newsLetterApp/sports.html'
+    template = 'newsLetterApp/categories.html'
     return render(request, template, context)
 
 
@@ -87,9 +89,29 @@ def newsletter_unsubscribe(request):
         return render(request, 'newsLetterApp/unsubscribe.html', {'form': UnSubscribeForm()})
 
 
-@api_view()
-def newsletters_list(request):
-    newsletters = TagsNewsletter.objects.all()
-    serializer = NewsletterSerializer(newsletters, many=True)
-    return Response(serializer.data)
+class NewslettersViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = NewsletterSerializer
+
+    def get_queryset(self):
+        return TagsNewsletter.objects.filter(author=self.request.user).order_by('date_added')
+
+
+class TagsViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    queryset = Tag.objects.all()
+    serializer_class = TagsSerializer
+
+
+class UsersViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    queryset = User.objects.all()
+    serializer_class = UsersSerializer
+
+
+class SubscribersViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+    queryset = Subscriber.objects.all()
+    serializer_class = SubscribersSerializer
+
 
