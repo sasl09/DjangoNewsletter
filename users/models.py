@@ -1,6 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
+<<<<<<< HEAD
 from PIL import Image
+=======
+<<<<<<< HEAD
+from PIL import Image
+=======
+>>>>>>> 6fbf1c87481d04d8b2b9e4646d7dee9dd692d903
+>>>>>>> 4a51a5607dbdc881353c89d80ffa8b61fbfb97fd
 
 
 # Create your models here.
@@ -10,6 +17,10 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4a51a5607dbdc881353c89d80ffa8b61fbfb97fd
 
     def save(self):
         super().save()
@@ -20,5 +31,10 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 6fbf1c87481d04d8b2b9e4646d7dee9dd692d903
+>>>>>>> 4a51a5607dbdc881353c89d80ffa8b61fbfb97fd
 
 
