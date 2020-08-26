@@ -7,9 +7,10 @@
 
     {% for bulletin in bulletins %}
         <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ bulletin.author.profile.image.url }}">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="../profile/">{{ bulletin.author }}</a>
+              <a class="mr-2" href="../profiles/">{{ bulletin.author }}</a>
               <small class="text-muted">{{ bulletin.date_added|date:"F d, Y" }}</small>
             </div>
             <h2><a class="article-title" href="#">{{ bulletin.title }}</a></h2>
