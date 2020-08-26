@@ -1,0 +1,29 @@
+{% extends 'newsLetterApp/base.html' %}
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+
+{% block content %}
+    <h1>OUR AUTHORS</h1>
+    <br>
+    <h3>Check out their profiles...</h3>
+    <br>
+    {% for profile in profiles %}
+        {% if profile.user.is_staff %}
+            <article class="media content-section">
+              <div class="media-body">
+                <div class="article-metadata">
+                  <img class="rounded-circle account-img" src="{{ profile.user.profile.image.url }}">
+                        <a class="account-heading" href="#">{{ profile.user }}</a>
+    <!--                <a class="account-heading" href="author_profile/{{profile.user}}">{{ profile.user }}</a>-->
+                </div>
+    <!--            <h2><a class="article-title" href="#">{{ newsletter.title }}</a></h2>-->
+                <p class="article-content">{{ profile.user.email }}</p>
+              </div>
+            </article>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+
+
