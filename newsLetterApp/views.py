@@ -89,7 +89,23 @@ def newsletter_unsubscribe(request):
         return render(request, 'newsLetterApp/unsubscribe.html', {'form': UnSubscribeForm()})
 
 
+<<<<<<< HEAD
 class NewslettersViewSet(viewsets.ModelViewSet):
+=======
+<<<<<<< HEAD
+class NewslettersViewSet(viewsets.ModelViewSet):
+=======
+<<<<<<< HEAD
+class NewslettersViewSet(viewsets.ModelViewSet):
+=======
+<<<<<<< HEAD
+class NewslettersViewSet(viewsets.ModelViewSet):
+=======
+class NewslettersViewSet(viewsets.ReadOnlyModelViewSet):
+>>>>>>> b45c2250c6ca585848e16ee36ed4d5b47c91bea1
+>>>>>>> 6fbf1c87481d04d8b2b9e4646d7dee9dd692d903
+>>>>>>> 4a51a5607dbdc881353c89d80ffa8b61fbfb97fd
+>>>>>>> 83dc61fee60c4eba1255746d125f42f15fceaa24
     permission_classes = (IsAuthenticated,)
     serializer_class = NewsletterSerializer
 

@@ -24,6 +24,10 @@ from django.views.generic import TemplateView
 from emailer import views
 from newsLetterApp import views as newsletterapp_views
 from newsLetterApp.views import NewslettersViewSet, UsersViewSet, TagsViewSet, SubscribersViewSet
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 83dc61fee60c4eba1255746d125f42f15fceaa24
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_swagger.views import get_swagger_view
@@ -33,6 +37,23 @@ API_TITLE = 'Newsletter API'
 API_DESCRIPTION = 'Api de un newsletter.'
 schema_view = get_swagger_view(title=API_TITLE)
 
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+from django.conf import settings
+from django.conf.urls.static import static
+
+=======
+<<<<<<< HEAD
+from django.conf import settings
+from django.conf.urls.static import static
+
+=======
+>>>>>>> b45c2250c6ca585848e16ee36ed4d5b47c91bea1
+>>>>>>> 6fbf1c87481d04d8b2b9e4646d7dee9dd692d903
+>>>>>>> 4a51a5607dbdc881353c89d80ffa8b61fbfb97fd
+>>>>>>> 83dc61fee60c4eba1255746d125f42f15fceaa24
 
 router = routers.DefaultRouter()
 router.register(r'newsletters', NewslettersViewSet, "Newsletters")
@@ -61,9 +82,22 @@ urlpatterns = [
     # API URLS:
     url(r'^api/v1/', include(router.urls)),
     url(r'^api-token-auth/', obtain_auth_token),
+<<<<<<< HEAD
     # SWAGGER URL:
     path('docs/', schema_view),
 
+=======
+<<<<<<< HEAD
+    # SWAGGER URL:
+    path('docs/', schema_view),
+
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 6fbf1c87481d04d8b2b9e4646d7dee9dd692d903
+>>>>>>> 4a51a5607dbdc881353c89d80ffa8b61fbfb97fd
+>>>>>>> 83dc61fee60c4eba1255746d125f42f15fceaa24
 ]
 
 # This code's for our media:
@@ -72,3 +106,15 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+]
+>>>>>>> b45c2250c6ca585848e16ee36ed4d5b47c91bea1
+>>>>>>> 6fbf1c87481d04d8b2b9e4646d7dee9dd692d903
+>>>>>>> 4a51a5607dbdc881353c89d80ffa8b61fbfb97fd
+>>>>>>> 83dc61fee60c4eba1255746d125f42f15fceaa24

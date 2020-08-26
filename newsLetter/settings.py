@@ -35,8 +35,15 @@ INSTALLED_APPS = [
     #'newsLetterApp.apps.NewsletterappConfig',
     'newsLetterApp', #You can just add the whole "App folder container" instead of the above line...
     'rest_framework',
+<<<<<<< HEAD
     'rest_framework_swagger',
     'corsheaders',
+=======
+<<<<<<< HEAD
+    'rest_framework_swagger',
+=======
+>>>>>>> 4a51a5607dbdc881353c89d80ffa8b61fbfb97fd
+>>>>>>> 83dc61fee60c4eba1255746d125f42f15fceaa24
     'rest_framework.authtoken',
     'users.apps.UsersConfig',
     'emailer',
@@ -168,6 +175,15 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
+<<<<<<< HEAD
     ),
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+=======
+<<<<<<< HEAD
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+=======
+    )
+>>>>>>> 4a51a5607dbdc881353c89d80ffa8b61fbfb97fd
+>>>>>>> 83dc61fee60c4eba1255746d125f42f15fceaa24
 }
