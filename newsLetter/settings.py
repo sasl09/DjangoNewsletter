@@ -35,8 +35,25 @@ INSTALLED_APPS = [
     #'newsLetterApp.apps.NewsletterappConfig',
     'newsLetterApp', #You can just add the whole "App folder container" instead of the above line...
     'rest_framework',
+<<<<<<< HEAD
     'rest_framework_swagger',
     # 'corsheaders',
+=======
+<<<<<<< HEAD
+    'rest_framework_swagger',
+    # 'corsheaders',
+=======
+<<<<<<< HEAD
+    'rest_framework_swagger',
+    'corsheaders',
+=======
+<<<<<<< HEAD
+    'rest_framework_swagger',
+=======
+>>>>>>> 4a51a5607dbdc881353c89d80ffa8b61fbfb97fd
+>>>>>>> 83dc61fee60c4eba1255746d125f42f15fceaa24
+>>>>>>> d60f817bc5b4c51445fc8a176c2960a3e9e5a9a2
+>>>>>>> 28a4ca38c4cd9385736f9ad15eeb5ae7488ffd53
     'rest_framework.authtoken',
     'users.apps.UsersConfig',
     'emailer',
@@ -57,10 +74,31 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+<<<<<<< HEAD
     # 'corsheaders.middleware.CorsMiddleware',
     # 'Django.middleware.common.CommonMiddleware',
 ]
 
+=======
+<<<<<<< HEAD
+    # 'corsheaders.middleware.CorsMiddleware',
+    # 'Django.middleware.common.CommonMiddleware',
+=======
+    'corsheaders.middleware.CorsMiddleware',
+    'Django.middleware.common.CommonMiddleware',
+]
+
+CORS_Origin_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_Origin_WHITELIST = [
+    'http://localhost:3030',
+]
+CORS_Origin_REGEX_WHITELIST = [
+    'http://localhost:3030',
+>>>>>>> d60f817bc5b4c51445fc8a176c2960a3e9e5a9a2
+]
+
+>>>>>>> 28a4ca38c4cd9385736f9ad15eeb5ae7488ffd53
 # CORS_Origin_ALLOW_ALL = True
 # CORS_ALLOW_CREDENTIALS = True
 # CORS_Origin_WHITELIST = [
@@ -168,6 +206,25 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
+<<<<<<< HEAD
     ),
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+=======
+<<<<<<< HEAD
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+=======
+<<<<<<< HEAD
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+=======
+<<<<<<< HEAD
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+=======
+    )
+>>>>>>> 4a51a5607dbdc881353c89d80ffa8b61fbfb97fd
+>>>>>>> 83dc61fee60c4eba1255746d125f42f15fceaa24
+>>>>>>> d60f817bc5b4c51445fc8a176c2960a3e9e5a9a2
+>>>>>>> 28a4ca38c4cd9385736f9ad15eeb5ae7488ffd53
 }
